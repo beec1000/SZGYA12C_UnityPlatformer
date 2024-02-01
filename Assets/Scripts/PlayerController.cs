@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float maxSpeed = 7;
-    [SerializeField] private float jumpHeight = 375;
+    [SerializeField] private float maxSpeed = 7f;
+    [SerializeField] private float jumpHeight = 375f;
+    [SerializeField] private float fireRate = .5f;
 
     [SerializeField] private Transform groundChecker;
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] private Transform gunMuzzle;
+    [SerializeField] private GameObject projectile;
 
     private Animator animator;
     private Rigidbody2D rigidbody2d;
     private bool isFacingRight;
     private bool isGrounded;
+    private float nextFire;
 
     private void Start()
     {
@@ -20,6 +24,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         isFacingRight = true;
         isGrounded = false;
+        nextFire = 0;
     }
     private void Update()
     {
@@ -29,6 +34,14 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isGrounded", false);
             rigidbody2d.AddForce(new(0, jumpHeight));
         }
+
+        if (Time.time >= nextFire && Input.GetAxisRaw("Fire1") != 0)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(projectile, gunMuzzle.position, Quaternion.Euler(0, 0, 
+                z: isFacingRight ? 0 : 180));
+        }
+
     }
 
     private void FixedUpdate()
