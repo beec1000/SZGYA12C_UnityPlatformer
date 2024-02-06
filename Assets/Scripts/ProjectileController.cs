@@ -17,4 +17,6 @@ public class ProjectileController : MonoBehaviour
 
     }
 
+    public void Stop() => rigidbody2D.velocity = new(0, 0);
+
 }
