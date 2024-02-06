@@ -1,15 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform followTransform;
+    [SerializeField] private Transform target;
+    [SerializeField] private float delay = 5f;
 
-    void FixedUpdate()
+    private Vector3 offsetRight;
+    private Vector3 offsetLeft;
+    private float lowY;
+    private bool facingRight;
+    private float difX;
+
+    private void Start()
     {
-        this.transform.position = new Vector3(followTransform.position.x, followTransform.position.y, this.transform.position.z);
+        facingRight = true;
+        difX = transform.position.x - target.position.x;
+        lowY = transform.position.y;
+        offsetRight = transform.position - target.position;
+        offsetLeft = transform.position - target.position;
+        offsetLeft.x -= 2 * difX;
 
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 targetPos = target.localScale.x > 0
+            ? target.position + offsetRight
+            : target.position + offsetLeft;
+        transform.position = Vector3.Lerp(transform.position, targetPos, delay * Time.deltaTime);
+
+        if (transform.position.y < lowY)
+        {
+            transform.position = new(transform.position.x, lowY, transform.position.z);
+        }
 
     }
 }
