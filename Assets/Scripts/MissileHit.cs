@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissileHit : MonoBehaviour
 {
-    [SerializeField] private float damage = 1f;
+    [SerializeField] private float damage = 2f;
     [SerializeField] private GameObject explosionEffect;
 
     private ProjectileController controller;
@@ -22,6 +22,10 @@ public class MissileHit : MonoBehaviour
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
             //Destroy(target.gameObject);
+            if (target.CompareTag("Enemy"))
+            {
+                EnemyHealth enemyHealth = target.gameObject.GetComponent;
+            }
         }
     }
 
