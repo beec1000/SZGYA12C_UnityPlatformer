@@ -24,7 +24,8 @@ public class MissileHit : MonoBehaviour
             //Destroy(target.gameObject);
             if (target.CompareTag("Enemy"))
             {
-                EnemyHealth enemyHealth = target.gameObject.GetComponent;
+                EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
+                enemyHealth.TakeDamage(damage);
             }
         }
     }
