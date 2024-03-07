@@ -11,12 +11,10 @@ public class CameraFollow : MonoBehaviour
     private Vector3 offsetRight;
     private Vector3 offsetLeft;
     private float lowY;
-    private bool facingRight;
     private float difX;
 
     private void Start()
     {
-        facingRight = true;
         difX = transform.position.x - target.position.x;
         lowY = transform.position.y;
         offsetRight = transform.position - target.position;
