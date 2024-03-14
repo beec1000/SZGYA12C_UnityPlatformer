@@ -11,13 +11,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private Image damageIndicator;
     [SerializeField] private float dmgSmoothTime = .5f;
+    [SerializeField] private AudioClip playerGrunt;
 
     private Color dmgColor = new Color(255f, 0f, 0f, .7f);
     private float currentHealth;
     private bool getDamage;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         getDamage = false;
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
@@ -36,12 +39,12 @@ public class PlayerHealth : MonoBehaviour
             damageIndicator.color = Color.Lerp(damageIndicator.color, new Color(255f, 255f, 255f, 0f), dmgSmoothTime * Time.deltaTime);
             
         }
-        
-
     }
 
     public void TakeDamage(float damage)
     {
+        audioSource.PlayOneShot(playerGrunt);
+
         currentHealth -= damage;
         getDamage = true;
         healthBar.value = currentHealth;
