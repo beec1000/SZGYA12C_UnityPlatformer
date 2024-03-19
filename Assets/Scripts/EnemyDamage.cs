@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] private float damage = 2f;
     [SerializeField] private float damageRate = 1f;
-    [SerializeField] private float pushForce = 20f;
+    [SerializeField] private float pushForce = 10f;
 
     private float nextDamage;
 
@@ -33,6 +33,7 @@ public class EnemyDamage : MonoBehaviour
         Vector2 pushDirection = new Vector2(
             playerTransform.position.x - transform.position.x, 
             playerTransform.position.y - transform.position.y) * pushForce;
+
         Rigidbody2D playerRB = playerTransform.gameObject.GetComponent<Rigidbody2D>();
         playerRB.velocity = Vector2.zero;
         playerRB.AddForce(pushDirection, ForceMode2D.Impulse);

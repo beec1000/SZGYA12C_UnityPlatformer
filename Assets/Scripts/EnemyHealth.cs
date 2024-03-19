@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,14 @@ public class EnemyHealth : MonoBehaviour
 
     private void MakeDeath()
     {
-        Destroy(gameObject);
+        if (gameObject.transform.parent is null)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         Instantiate(deathFX, transform.position, transform.rotation);
     }
 
