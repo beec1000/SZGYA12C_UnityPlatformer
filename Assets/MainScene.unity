@@ -834,6 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1555841631}
   delay: 3
+  viewDistance: 14
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
