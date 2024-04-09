@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +7,6 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 5f;
     [SerializeField] private GameObject deathFX;
     [SerializeField] private Slider healthBar;
-
     private float currentHealth;
 
     private void Start()
@@ -28,20 +25,12 @@ public class EnemyHealth : MonoBehaviour
         {
             MakeDeath();
         }
-
     }
 
     private void MakeDeath()
     {
-        if (gameObject.transform.parent is null)
-        {
-            Destroy(gameObject.transform.parent.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (gameObject.transform.parent is not null) Destroy(gameObject.transform.parent.gameObject);
+        else Destroy(gameObject);
         Instantiate(deathFX, transform.position, transform.rotation);
     }
-
 }

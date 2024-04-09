@@ -787,7 +787,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -834,7 +834,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1555841631}
   delay: 3
-  viewDistance: 14
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1040,7 +1039,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6115a0762b3766469fe487bb2093b42, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1105,7 +1104,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 717982564}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6115a0762b3766469fe487bb2093b42, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1125,7 +1124,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.04, y: 0.05}
@@ -1143,8 +1142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35db4b070bc11254886cbd759a1fce94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphics: {fileID: 1460167178}
   runSpeed: 7
-  graphics: {fileID: 0}
+  startChargeTime: 0
+  chargeDelay: 0.5
 --- !u!114 &719535790 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1733033735472121805, guid: 4adc645d70e6a1e4d9c324850ce8b3e3, type: 3}
