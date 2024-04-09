@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class HedgehogAI : MonoBehaviour
 {
-    [SerializeField] GameObject graphics;
-
     [SerializeField] float runSpeed = 7f;
-    [SerializeField] private float startChargeTime = 0f;
-    [SerializeField] private float chargeDelay = .25f;
+    [SerializeField] private float flipTime = 2f;
+    [SerializeField] private float chargeDelay = .5f;
 
     private Animator animator;
     private Rigidbody2D rigidbody2d;
@@ -14,8 +12,8 @@ public class HedgehogAI : MonoBehaviour
     private bool facintgRight = false;
     private bool canFlip = true;
     private bool isCharging = false;
+    private float startChargeTime = 0f;
 
-    private float flipTime = 2f;
     private float nextFlip = 0f;
 
     private void Start()
@@ -39,7 +37,7 @@ public class HedgehogAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (facintgRight != other.transform.position.x > transform.position.x) 
+            if (facintgRight != other.transform.position.x > transform.position.x)
                 FlipFacing();
             canFlip = false;
             isCharging = true;
@@ -69,10 +67,10 @@ public class HedgehogAI : MonoBehaviour
     private void FlipFacing()
     {
         facintgRight = !facintgRight;
-        graphics.transform.localScale =
+        transform.localScale =
             new Vector3(
-                graphics.transform.localScale.x * -1,
-                graphics.transform.localScale.y,
-                graphics.transform.localScale.z);
+                transform.localScale.x * -1,
+                transform.localScale.y,
+                transform.localScale.z);
     }
 }

@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 717982566}
   - component: {fileID: 717982568}
   - component: {fileID: 717982569}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HEDGEHOG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1082,7 +1082,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: -1.3, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1093,7 +1093,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 0.8}
+  m_Size: {x: 3.7, y: 0.8}
   m_EdgeRadius: 0
 --- !u!58 &717982568
 CircleCollider2D:
@@ -1142,9 +1142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35db4b070bc11254886cbd759a1fce94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphics: {fileID: 1460167178}
   runSpeed: 7
-  startChargeTime: 0
+  flipTime: 2
   chargeDelay: 0.5
 --- !u!114 &719535790 stripped
 MonoBehaviour:
