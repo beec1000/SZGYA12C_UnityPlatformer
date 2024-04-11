@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 596001645, guid: e500028f78f03d34a91b49f6080e7471, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,8 +123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  canDrop: 1
   deathFX: {fileID: 846773689029893200, guid: ca6c301a74c93c846a153dce460158d8, type: 3}
   healthBar: {fileID: 1013528355723323117}
+  healthDrop: {fileID: 5079202608031463954, guid: ee5e0d74d46527c44a0d4b01a0950111, type: 3}
 --- !u!114 &2289027603090950486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8188820291876554035}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -166.88, y: -1, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0

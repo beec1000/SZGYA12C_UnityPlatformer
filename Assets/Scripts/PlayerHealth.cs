@@ -55,6 +55,17 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Healing(float healthAmount)
+    {
+        if (currentHealth < maxHealth)
+        {
+            if (healthAmount + currentHealth <= maxHealth)currentHealth += healthAmount;
+            else currentHealth = maxHealth;
+           
+            healthBar.value = currentHealth;
+        }
+    }
+
     private void MakeDead()
     {
         Destroy(gameObject);
